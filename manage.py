@@ -8,4 +8,4 @@ manager = Manager(app)
 manager.add_command('server', Server)
 
 if __name__ == '__main__':
-    Manager.run()  # runs the Flask instance (app)
+    manager.run()  # runs the Flask instance (app)

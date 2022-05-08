@@ -3,6 +3,7 @@ class Config:
     '''
     General configuration parent class
     '''
+    pass
 
 
 # ProdConfig subclass contains configurations that are used in production stages of our application and inherits from the parent Config class.
