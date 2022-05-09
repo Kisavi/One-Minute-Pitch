@@ -9,7 +9,7 @@ from sqlalchemy.sql import func
 # Model Class for Votes
 # Model Class for Comments
 
-class User(db.model, UserMixin):
+class User(db.Model, UserMixin):
     """
     this User class helps us create new users
     args: db.model which helps us connect our class to the db
@@ -22,7 +22,7 @@ class User(db.model, UserMixin):
     pitches = db.relationship('Pitch')
 
 
-class Pitch(db.model):
+class Pitch(db.Model):
     """
     this Pitch class helps us create new Pitch from a user
     args: db.model which helps us connect our class to the db
