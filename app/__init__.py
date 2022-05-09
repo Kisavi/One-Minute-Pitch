@@ -3,6 +3,7 @@ from config import config_options
 from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_mail import Mail
+from flask_login import LoginManager
 
 db = SQLAlchemy()  # Initializing SQLAlchemy claas
 DB_NAME = 'database.db'
@@ -15,6 +16,13 @@ def create_app(config_name):  # a method to instantiate our App
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     db.init_app(app)  # initialise our db
     mail.init_app(app) # initialize our mail
+    login_manager = LoginManager()
+    login_manager.login_view = 'auth.login'
+    login_manager.init_app(app)
+
+    @login_manager.user_loader
+    def load_user(id):
+        return User.query.get(int(id))
 
     # Creating the app configurations
     app.config.from_object(config_options[config_name])
