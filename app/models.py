@@ -19,7 +19,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(255))
     email = db.Column(db.String(255), unique=True)
     password = db.Column(db.String(255))
-    pitches = db.relationship('Pitch')
+    pitches = db.relationship('Pitch', backref='user',lazy='dynamic')
 
 
 # class Category(db.Model):
@@ -36,12 +36,20 @@ class Pitch(db.Model):
     args: db.model which helps us connect our class to the db
     """
 
-    __table_name__ = 'category'
+    __table_name__ = 'pitches'
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255), nullable=False)
+    category = db.Column(db.String(255), nullable=False)
     content = db.Column(db.String(255), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    comments = db.relationship('Comment',backref='pitch',lazy='dynamic')
+    upvotes = db.relationship('Upvote',backref='pitch',lazy='dynamic')
+    downvotes = db.relationship('Downvote',backref='pitch',lazy='dynamic')
     date = db.Column(db.DateTime(timezone=True), default=func.now())
+
+    def save_pitch(self):
+        db.session.add(self)
+        db.session.commit()
 
 
 # class Votes(db.Model):
