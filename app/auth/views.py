@@ -1,5 +1,8 @@
 from . import auth
-from flask import render_template, request, flash
+from .. import db
+from flask import render_template, request, flash, redirect, url_for
+from ..models import User
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 @auth.route('/login', methods=['GET', 'POST'])
@@ -29,6 +32,13 @@ def sign_up():
         elif password1 != password2:
             flash('Passwords did not match!!!', category='error')
         else:
+            # create a new user if form is valid
+            new_user = User(email=email, username=username,password=generate_password_hash(password1,method='sha256'))
+            # add the new user to our db
+            db.session.add(new_user)
+            db.session.commit()
             flash('Account created successfully.', category='success')
+            return redirect(url_for('auth.login'))
 
     return render_template("auth/sign-up.html")
+
