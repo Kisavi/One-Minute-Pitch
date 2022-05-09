@@ -1,9 +1,16 @@
+import os
 # parent Config class contains configurations that are used in both production and development stages.
 class Config:
     '''
     General configuration parent class
     '''
-    pass
+    # email configurations
+    MAIL_SERVER = 'smtp.googlemail.com'
+    MAIL_PORT = 587
+    MAIL_USE_TLS = True
+    MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
+    MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
+
 
 
 # ProdConfig subclass contains configurations that are used in production stages of our application and inherits from the parent Config class.
@@ -33,3 +40,5 @@ config_options = {
     'development': DevConfig,
     'production': ProdConfig
 }
+
+
