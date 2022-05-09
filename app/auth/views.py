@@ -23,7 +23,7 @@ def login():
                 flash('You entered wrong email or password', category='error')
         else:
             flash('Email does not exist.', category='error')
-    return render_template("auth/login.html")
+    return render_template("auth/login.html", user=current_user)
 
 
 @auth.route('/logout')
@@ -64,4 +64,4 @@ def sign_up():
             flash('Account created successfully.', category='success')
             return redirect(url_for('auth.login'))
 
-    return render_template("auth/sign-up.html")
+    return render_template("auth/sign-up.html", user=current_user)
