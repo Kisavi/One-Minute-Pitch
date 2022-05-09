@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_mail import Mail
 from flask_login import LoginManager
+from flask_bootstrap import Bootstrap
 
 db = SQLAlchemy()  # Initializing SQLAlchemy claas
 DB_NAME = 'database.db'
@@ -19,10 +20,11 @@ def create_app(config_name):  # a method to instantiate our App
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
     login_manager.init_app(app)
+    bootstrap = Bootstrap(app)
 
     @login_manager.user_loader
-    def load_user(id):
-        return User.query.get(int(id))
+    def load_user(user_id):
+        return User.query.get(int(user_id))
 
     # Creating the app configurations
     app.config.from_object(config_options[config_name])
