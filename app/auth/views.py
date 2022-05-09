@@ -3,6 +3,7 @@ from .. import db
 from flask import render_template, request, flash, redirect, url_for
 from ..models import User
 from werkzeug.security import generate_password_hash, check_password_hash
+from ..email import mail_message
 
 
 @auth.route('/login', methods=['GET', 'POST'])
@@ -52,6 +53,8 @@ def sign_up():
             # add the new user to our db
             db.session.add(new_user)
             db.session.commit()
+            # send welcome email to new user
+            mail_message("Welcome to One Minute Pitch","email/welcome_user",user.email,user=user)
             flash('Account created successfully.', category='success')
             return redirect(url_for('auth.login'))
 
