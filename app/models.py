@@ -16,7 +16,7 @@ class User(db.Model, UserMixin):
     """
     __table_name__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(255), unique=True)
+    username = db.Column(db.String(255))
     email = db.Column(db.String(255), unique=True)
     password = db.Column(db.String(255))
     pitches = db.relationship('Pitch')

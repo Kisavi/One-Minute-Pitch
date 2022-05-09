@@ -7,6 +7,18 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
+
+        user = User.query.filter_by(email=email).first()
+        if user:
+            if check_password_hash(user.password, password):
+                flash('Logged in successfully', category='success')
+            else:
+                flash('You entered wrong email or password', category='error')
+        else:
+            flash('Email does not exist.', category='error')
     return render_template("auth/login.html")
 
 
@@ -23,7 +35,10 @@ def sign_up():
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
 
-        if len(email) < 4:
+        user = User.query.filter_by(email=email).first()
+        if user:
+            flash('A user with this email already exists', category='error')
+        elif len(email) < 4:
             flash('Email must be greater than 4 characters.', category='error')
         elif len(username) < 2:
             flash('Pick a username that is greater than 2 characters.', category='error')
@@ -33,7 +48,7 @@ def sign_up():
             flash('Passwords did not match!!!', category='error')
         else:
             # create a new user if form is valid
-            new_user = User(email=email, username=username,password=generate_password_hash(password1,method='sha256'))
+            new_user = User(email=email, username=username, password=generate_password_hash(password1, method='sha256'))
             # add the new user to our db
             db.session.add(new_user)
             db.session.commit()
@@ -41,4 +56,3 @@ def sign_up():
             return redirect(url_for('auth.login'))
 
     return render_template("auth/sign-up.html")
-
