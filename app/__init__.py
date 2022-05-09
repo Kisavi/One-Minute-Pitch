@@ -2,9 +2,11 @@ from flask import Flask  # import the Flask class from flask module
 from config import config_options
 from flask_sqlalchemy import SQLAlchemy
 from os import path
+from flask_mail import Mail
 
 db = SQLAlchemy()  # Initializing SQLAlchemy claas
 DB_NAME = 'database.db'
+mail = Mail() # Initializing Mail class
 
 
 def create_app(config_name):  # a method to instantiate our App
@@ -12,6 +14,7 @@ def create_app(config_name):  # a method to instantiate our App
     app.config['SECRET_KEY'] = 'SECRET'
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     db.init_app(app)  # initialise our db
+    mail.init_app(app) # initialize our mail
 
     # Creating the app configurations
     app.config.from_object(config_options[config_name])
