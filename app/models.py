@@ -22,6 +22,14 @@ class User(db.Model, UserMixin):
     pitches = db.relationship('Pitch')
 
 
+# class Category(db.Model):
+#     """
+#     this Category class helps us create new Pitch from a user
+#     args: db.model which helps us connect our class to the db
+#     """
+#     pass
+
+
 class Pitch(db.Model):
     """
     this Pitch class helps us create new Pitch from a user
@@ -34,3 +42,19 @@ class Pitch(db.Model):
     content = db.Column(db.String(255), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     date = db.Column(db.DateTime(timezone=True), default=func.now())
+
+
+# class Votes(db.Model):
+#     """
+#     this Votes class helps us update the votes for a pitch
+#     args: db.model which helps us connect our class to the db
+#     """
+#     pass
+
+
+# class Comments(db.Model):
+#     """
+#     this Comments class helps us create a new comment a user submits
+#     args: db.model which helps us connect our class to the db
+#     """
+#     pass

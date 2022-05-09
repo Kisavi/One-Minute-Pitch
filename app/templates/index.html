@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Welcome to your home page</h1>
+<h1>Welcome to your home page {{user.username}}</h1>
+ <button type="submit" class="btn btn-primary mb-2">Post a pitch</button>
+ <button type="submit" class="btn btn-primary mb-2">View existing pitches</button>
 {% endblock %}
