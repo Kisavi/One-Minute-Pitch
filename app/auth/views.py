@@ -17,7 +17,7 @@ def login():
         if user:
             if check_password_hash(user.password, password):
                 flash('Logged in successfully', category='success')
-                login_user(user, remember=True)
+                login_user(user)
                 return redirect(url_for('app.main.index'))
             else:
                 flash('You entered wrong email or password', category='error')
@@ -60,7 +60,7 @@ def sign_up():
             db.session.commit()
             # send welcome email to new user
             # mail_message("Welcome to One Minute Pitch","email/welcome_user",new_user.email,user=user)
-            login_user(user, remember=True)
+            # login_user(new_user)
             flash('Account created successfully.', category='success')
             return redirect(url_for('auth.login'))
 
