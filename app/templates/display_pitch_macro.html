@@ -3,7 +3,6 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-
            {% if pitches %}
           {% for pitch in pitches %}
            <div class="card" style="width: 18rem;">
@@ -11,6 +10,15 @@
                     <h5 class="card-title">{{pitch.category}}</h5>
                     <p>{{pitch.title}}</p>
                     <p>{{pitch.content}}</p>
+                    <div class="footer">
+                        <div class="comments">
+                            <a href="/comment/{{pitch.id}}"><button class="btn btn-dark">Comment</button></a>
+                        </div>
+                        <div class="votes">
+                            <a href=""><button class="btn btn-success">UpVote</button></a>
+                            <a href=""><button class="btn btn-danger">DownVote</button></a>
+                        </div>
+                    </div>
                 </div>
            </div>
           {% endfor %}
