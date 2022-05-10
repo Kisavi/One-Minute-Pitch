@@ -1,4 +1,5 @@
 {% extends 'base.html'%}
+{% from 'comment.macro.html' import display_comments%}
 {% import "bootstrap/wtf.html" as wtf %}
 
 {% block content %}
@@ -12,7 +13,7 @@
         <div class="col-md-8">
              <h2 class="text-center">What others feel</h2>
             <br>
-            <div></div>
+            <div>{{ display_comments(comments) }}</div>
         </div>
     </div>
 </div>
