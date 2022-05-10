@@ -20,6 +20,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), unique=True)
     password = db.Column(db.String(255))
     pitches = db.relationship('Pitch', backref='user', lazy='dynamic')
+    # user_post_vote = db.relationship('PostVote', backref='author', lazy='dynamic')
 
 
 # class Category(db.Model):
@@ -43,15 +44,20 @@ class Pitch(db.Model):
     category = db.Column(db.String(255), nullable=False)
     content = db.Column(db.String(255), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    # user = db.relationship(User)
     comment = db.relationship('Comment', backref='pitch', lazy='dynamic')
     upvotes = db.relationship('UpVote', backref='pitch', lazy='dynamic')
     downvotes = db.relationship('DownVote', backref='pitch', lazy='dynamic')
+    # post_vote = db.relationship('PostVote', backref='post_votes', lazy='dynamic')
     date = db.Column(db.DateTime(timezone=True), default=func.now())
 
-    def save_pitch(self):
-        db.session.add(self)
-        db.session.commit()
+
+# class PostVote(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+#     user = db.relationship('User', backref=db.backref('user_post_votes'))
+#     pitch_id = db.Column(db.Integer, db.ForeignKey('pitch.id'))
+#     pitch = db.relationship('Pitch', backref=db.backref('all_post_votes'))
+#     upvote = db.Column(db.Boolean, nullable=False)
 
 
 class UpVote(db.Model):
@@ -66,10 +72,6 @@ class UpVote(db.Model):
     pitch_id = db.Column(db.Integer, db.ForeignKey('pitch.id'))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
-    def save_upvote(self):
-        db.session.add(self)
-        db.session.commit()
-
 
 class DownVote(db.Model):
     """
@@ -83,10 +85,6 @@ class DownVote(db.Model):
     pitch_id = db.Column(db.Integer, db.ForeignKey('pitch.id'))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
-    def save_downvote(self):
-        db.session.add(self)
-        db.session.commit()
-
 
 class Comment(db.Model):
     """
@@ -99,7 +97,3 @@ class Comment(db.Model):
     comment = db.Column(db.String(255), nullable=False)
     pitch_id = db.Column(db.Integer, db.ForeignKey('pitch.id'))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-
-    def save_comment(self):
-        db.session.add(self)
-        db.session.commit()
