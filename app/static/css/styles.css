@@ -4,6 +4,7 @@
     background-color: rgb(245, 245, 245);
 }
 
+/* Home page */
 .homeButtons {
     display: flex;
     justify-content: center;
@@ -23,6 +24,15 @@
              -20px -20px 60px #ffffff;
 }
 
+/* pitch form */
+.pitch-form {
+    padding: 2em;
+    background: #EEF0F4;
+    border-radius: 1em;
+    box-shadow: inset 7px 7px 14px #d4d6d9, inset -7px -7px 14px #d4d6d9;
+}
+
+/* pitch display section */
 .pitch {
     display: flex;
     align-items: center;
@@ -48,6 +58,7 @@
     margin-left: 0.3em;
 }
 
+/* comment section */
 .commentTitle {
     background: rgb(219, 219, 219);
 }
