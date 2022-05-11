@@ -3,16 +3,17 @@
 {% import "bootstrap/wtf.html" as wtf %}
 
 {% block content %}
-<div class="container-fluid">
+<div class="container comment-section">
     <div class="row">
-        <div class="col-md-4">
-            <h2 class="text-center">How do you feel about this pitch?</h2>
-            <br>
+        <div class="col-md-4 comment-form">
+            <h3 class="text-center">How do you feel about this pitch?</h3>
+            <hr>
             {{wtf.quick_form(form)}}
         </div>
-        <div class="col-md-8">
-             <h2 class="text-center">What others feel</h2>
-            <br>
+        <div class="col-md-1"></div>
+        <div class="col-md-7 user-comments">
+             <h3 class="text-center">What others feel</h3>
+            <hr>
             <div>{{ display_comments(comments) }}</div>
         </div>
     </div>

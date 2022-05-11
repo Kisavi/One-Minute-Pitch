@@ -15,7 +15,7 @@
     font-size: large;
 }
 
-.welcome-section,.pitchCard {
+.welcome-section,.pitchCard, .user-comments {
     padding: 1em;
     border-radius: 1em;
     background: #ebebeb;
@@ -47,5 +47,22 @@
 .downvote {
     margin-left: 0.3em;
 }
+
+.commentTitle {
+    background: rgb(219, 219, 219);
+}
+
+.user-comments {
+    min-height: 85vh;
+}
+
+.comment-form {
+    padding-top: 1em;
+    border: 1px solid black;
+    border-radius: 0.3em;
+    max-height: 30vh;
+}
+
+
 
 
