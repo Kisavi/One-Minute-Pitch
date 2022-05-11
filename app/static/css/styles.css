@@ -1,11 +1,14 @@
 /* navbar */
+.navbar {
+    background: #caced2 !important;
+}
 .nav-link {
     color: black !important;
 }
+
 .nav-link:hover {
-    background-color: #f8f9fa;
-    background: #EEF0F4;
-    box-shadow: inset 9.91px 9.91px 15px #E2E3E4, inset -9.91px -9.91px 15px #e3e4e9;
+    background: #caced2;
+    box-shadow: inset 9.91px 9.91px 15px #B8BBBF, inset -9.91px -9.91px 15px #DCE1E5;
 }
 
 /* sign up and login form */
@@ -47,10 +50,11 @@
 
 /* pitch display section */
 .pitch {
+    padding-bottom: 3em;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .footer {
@@ -72,6 +76,14 @@
 }
 
 /* comment section */
+.comment-form {
+    margin-top: 3em;
+    padding-top: 1em;
+    border: 1px solid black;
+    border-radius: 0.3em;
+    max-height: 40vh;
+}
+
 .commentTitle {
     background: rgb(219, 219, 219);
 }
@@ -80,13 +92,7 @@
     min-height: 85vh;
 }
 
-.comment-form {
-    margin-top: 3em;
-    padding-top: 1em;
-    border: 1px solid black;
-    border-radius: 0.3em;
-    max-height: 40vh;
-}
+
 
 
 

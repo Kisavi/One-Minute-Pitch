@@ -1,3 +1,4 @@
+from unicodedata import category
 from . import main
 from .. import db
 from flask import render_template, redirect, url_for, flash
@@ -32,9 +33,28 @@ def new_pitch():
 @login_required
 def pitches():
     pitches = Pitch.query.all()
-    for pitch in pitches:
-        print(pitch.content)
     return render_template('display_pitch.html', pitches=pitches)
+
+
+@main.route('/pitches/love')
+@login_required
+def love():
+    love = Pitch.query.filter_by(category='Love').all()
+    return render_template('love.html',love=love)
+
+
+@main.route('/pitches/life')
+@login_required
+def life():
+    life = Pitch.query.filter_by(category='Life').all()
+    return render_template('life.html',life=life)
+
+
+@main.route('/pitches/motivation')
+@login_required
+def motivation():
+    motivation = Pitch.query.filter_by(category='Motivation').all()
+    return render_template('motivation.html',motivation=motivation)        
 
 
 @main.route('/comment/<int:pitch_id>', methods=['POST', 'GET'])

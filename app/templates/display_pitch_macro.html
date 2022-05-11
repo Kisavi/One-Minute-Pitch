@@ -8,9 +8,10 @@
           {% for pitch in pitches %}
            <div class="card pitchCard" style="width: 25rem;">
                 <div class="card-body">
-                    <h5 class="card-title">{{pitch.category}}</h5>
-                    <p>{{pitch.title}}</p>
+                    <h5 class="card-title pitch-category">{{pitch.category}}</h5>
+                    <h6>{{pitch.title}}</h6>
                     <p>{{pitch.content}}</p>
+                    <p class="author">By {{pitch.user.username}}</p>
                     <div class="footer">
                         <div class="comments">
                             <a href="/comment/{{pitch.id}}"><button class="btn btn-dark">Comment</button></a>
