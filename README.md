@@ -18,6 +18,11 @@
 * Create a virtual environment $ pv -m venv --without-pip virtual
 * Activate the virtual environment $ source virtual/bin/activate
 * Install Dependancies $ pip install -r requirements.txt
+* Inside your root directory create a new file ```start.sh``` and add the following:
+* ```export MAIL_USERNAME=<your email address>```
+* ```export MAIL_PASSWORD=<your password>```
+* ```python(version) manage.py server```
+* Run chmod a+x start.sh  
 * Run the application $ ./start.sh
 ## Development
 #### Want to make a contribution to enhance an existing module or fix a bug? Great!
