@@ -1,3 +1,14 @@
+/* navbar */
+.nav-link {
+    color: black !important;
+}
+.nav-link:hover {
+    background-color: #f8f9fa;
+    background: #EEF0F4;
+    box-shadow: inset 9.91px 9.91px 15px #E2E3E4, inset -9.91px -9.91px 15px #e3e4e9;
+}
+
+/* sign up and login form */
 .login,.signup {
     border: 1px solid black;
     border-radius: 0.5em;
@@ -17,6 +28,7 @@
 }
 
 .welcome-section,.pitchCard, .user-comments {
+    margin-top: 3em;
     padding: 1em;
     border-radius: 1em;
     background: #ebebeb;
@@ -26,6 +38,7 @@
 
 /* pitch form */
 .pitch-form {
+    margin-top: 3em;
     padding: 2em;
     background: #EEF0F4;
     border-radius: 1em;
@@ -68,10 +81,11 @@
 }
 
 .comment-form {
+    margin-top: 3em;
     padding-top: 1em;
     border: 1px solid black;
     border-radius: 0.3em;
-    max-height: 30vh;
+    max-height: 40vh;
 }
 
 
