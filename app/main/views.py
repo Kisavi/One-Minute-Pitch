@@ -60,7 +60,7 @@ def upvote(pitch_id):
     new_upvote = UpVote(pitch=pitch, upvote=1)
     db.session.add(new_upvote)
     db.session.commit()
-    return redirect(url_for('app.main.new_pitch'))
+    return redirect(url_for('app.main.index'))
 
 
 @main.route('/dislike/<int:pitch_id>', methods=['POST', 'GET'])
@@ -70,7 +70,7 @@ def downvote(pitch_id):
     new_downvote = DownVote(pitch=pitch, downvote=1)
     db.session.add(new_downvote)
     db.session.commit()
-    return redirect(url_for('app.main.new_pitch'))
+    return redirect(url_for('app.main.index'))
 
 # @main.route('/_post_vote/<pitch_id>/<action_vote>', methods=['POST', 'GET'])
 # @login_required

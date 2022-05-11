@@ -60,7 +60,6 @@ def sign_up():
             db.session.commit()
             # send welcome email to new user
             # mail_message("Welcome to One Minute Pitch","email/welcome_user",new_user.email,user=user)
-            # login_user(new_user)
             flash('Account created successfully.', category='success')
             return redirect(url_for('auth.login'))
 
