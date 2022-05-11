@@ -9,9 +9,9 @@
            <div class="card pitchCard" style="width: 25rem;">
                 <div class="card-body">
                     <h5 class="card-title pitch-category">{{pitch.category}}</h5>
-                    <h6>{{pitch.title}}</h6>
+                    <h6>Title: {{pitch.title}}</h6>
                     <p>{{pitch.content}}</p>
-                    <p class="author">By {{pitch.user.username}}</p>
+                    <p class="author">By {{pitch.user.username.title()}} on {{pitch.date}}</p>
                     <div class="footer">
                         <div class="comments">
                             <a href="/comment/{{pitch.id}}"><button class="btn btn-dark">Comment</button></a>

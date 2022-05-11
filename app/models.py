@@ -23,14 +23,6 @@ class User(db.Model, UserMixin):
     # user_post_vote = db.relationship('PostVote', backref='author', lazy='dynamic')
 
 
-# class Category(db.Model):
-#     """
-#     this Category class helps us create new Pitch from a user
-#     args: db.model which helps us connect our class to the db
-#     """
-#     pass
-
-
 class Pitch(db.Model):
     """
     this Pitch class helps us create new Pitch from a user
@@ -97,3 +89,4 @@ class Comment(db.Model):
     comment = db.Column(db.String(255), nullable=False)
     pitch_id = db.Column(db.Integer, db.ForeignKey('pitch.id'))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
