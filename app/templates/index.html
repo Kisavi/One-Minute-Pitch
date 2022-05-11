@@ -1,16 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="home">
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2"></div>
-        <div class="col-md-8">
-<h2 style="text-align: center;">Welcome to your home page {{user.username.title()}}.<br>
-    In life, you only have 60 seconds to impress someone. 1 minute can make or break you. 
+        <div class="col-md-8 welcome-section">
+<h1 style="text-align: center;">Welcome to your home page {{user.username.title()}}.</h1>
+    <h2  style="text-align: center;">In life, you only have 60 seconds to impress someone. 1 minute can make or break you. 
 Use yours to share something meaningful in form of a posted pitch.</h2>
+<div class="homeButtons">
  <a href="/new_pitch"><button class="btn btn-secondary">Post a Pitch</button></a>
  <a href="/pitches"><button class="btn btn-secondary">View posted pitches</button></a>
 </div>
+</div>
 <div class="col-md-2"></div>
+</div>
 </div>
 </div>
 {% endblock %}

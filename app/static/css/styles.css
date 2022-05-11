@@ -1,3 +1,24 @@
 .login,.signup {
     border: 1px solid black;
+    border-radius: 0.5em;
+    background-color: rgb(245, 245, 245);
+}
+
+.homeButtons {
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+.btn {
+    margin-left: 1em;
+    font-size: large;
+}
+
+.welcome-section {
+    padding: 1em;
+    border-radius: 1em;
+    background: #ebebeb;
+    box-shadow:  20px 20px 60px #c8c8c8,
+             -20px -20px 60px #ffffff;
 }
