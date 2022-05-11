@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% macro display_pitches(pitches) %}
-<div class="container">
+<div class="container pitch">
+    <!-- <div class="pitch"> -->
     <div class="row">
         <div class="col-md-4">
            {% if pitches %}
           {% for pitch in pitches %}
-           <div class="card" style="width: 18rem;">
+           <div class="card pitchCard" style="width: 25rem;">
                 <div class="card-body">
                     <h5 class="card-title">{{pitch.category}}</h5>
                     <p>{{pitch.title}}</p>
@@ -15,8 +16,12 @@
                             <a href="/comment/{{pitch.id}}"><button class="btn btn-dark">Comment</button></a>
                         </div>
                         <div class="votes">
-                            <a href="/like/{{pitch.id}}"><button class="btn btn-success">Up Vote {{pitch.upvotes.count()}}</button></a>
-                            <a href="/dislike/{{pitch.id}}"><button class="btn btn-success">Down Vote {{pitch.downvotes.count()}}</button></a>
+                            <div class="upvote">
+                            <a href="/like/{{pitch.id}}"><button class="btn btn-success">Up {{pitch.upvotes.count()}}</button></a>
+                        </div>
+                        <div class="downvote">
+                            <a href="/dislike/{{pitch.id}}"><button class="btn btn-danger">Down {{pitch.downvotes.count()}}</button></a>
+                        </div>
 
                         </div>
                     </div>
@@ -26,6 +31,7 @@
          {% endif %}
         </div>
     </div>
+<!-- </div> -->
 </div>
 {% endmacro %}
 

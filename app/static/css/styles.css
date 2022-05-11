@@ -10,15 +10,42 @@
     margin-top: 2em;
 }
 
-.btn {
+.btn1 {
     margin-left: 1em;
     font-size: large;
 }
 
-.welcome-section {
+.welcome-section,.pitchCard {
     padding: 1em;
     border-radius: 1em;
     background: #ebebeb;
     box-shadow:  20px 20px 60px #c8c8c8,
              -20px -20px 60px #ffffff;
 }
+
+.pitch {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid red;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.votes {
+    display: flex;
+}
+
+.pitchCard {
+    border-radius: 0.5em;
+}
+
+.downvote {
+    margin-left: 0.3em;
+}
+
+
