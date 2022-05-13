@@ -10,6 +10,7 @@
 * Upvote or Downvote the pitches and also leave comments
 * Post their own pitches
 * Log out from their accounts
+## <a href="savvypitch.herokuapp.com/">Live preview of the site</a>
 ## Installation / Setup instruction
 ## Cloning
 * On your terminal, run the following commands:
