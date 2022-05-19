@@ -10,6 +10,7 @@
 * Upvote or Downvote the pitches and also leave comments
 * Post their own pitches
 * Log out from their accounts
+## <a href="savvypitch.herokuapp.com/">Live preview of the site</a>
 ## Installation / Setup instruction
 ## Cloning
 * On your terminal, run the following commands:
@@ -19,8 +20,6 @@
 * Activate the virtual environment $ source virtual/bin/activate
 * Install Dependancies $ pip install -r requirements.txt
 * Inside your root directory create a new file ```start.sh``` and add the following:
-* ```export MAIL_USERNAME=<your email address>```
-* ```export MAIL_PASSWORD=<your password>```
 * ```python(version) manage.py server```
 * Run chmod a+x start.sh  
 * Run the application $ ./start.sh
