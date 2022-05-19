@@ -1,7 +1,7 @@
 from unicodedata import category
 from . import main
 from .. import db
-from flask import render_template, redirect, url_for, flash
+from flask import render_template, redirect, url_for
 from flask_login import login_required, current_user
 from ..models import Pitch, Comment, UpVote, DownVote
 from .forms import PitchForm, CommentForm

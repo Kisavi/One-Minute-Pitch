@@ -12,9 +12,12 @@ manager.add_command('server', Server)
 # initialize our Migrate class
 migrate = Migrate(app, db)
 manager.add_command('db', MigrateCommand)
+
+
 @manager.shell
 def make_shell_context():
-    return dict(db=db,pitch=Pitch)
+    return dict(db=db, pitch=Pitch)
+
 
 if __name__ == '__main__':
     manager.run()  # runs the Flask instance (app)
